@@ -1,10 +1,12 @@
 package entities;
 
 import tools.Gender;
+
 /**
  * 
- * This class determines the behavior and thevariables of Sheep
- * This class implments Move inteface and inherited from Specie abstract class
+ * This class determines the behavior and thevariables of Sheep This class
+ * implments Move inteface and inherited from Specie abstract class
+ * 
  * @author Sýddýk Bayram
  */
 public class Sheep extends Species implements Move {
@@ -28,9 +30,9 @@ public class Sheep extends Species implements Move {
 	@Override
 	public void moveRight(int rightUnit) {
 		x += MOVE_UNIT;
-		
-		if (x>AREA_WIDTH-MOVE_UNIT) {
-			x-=MOVE_UNIT;
+
+		if (x > AREA_WIDTH - MOVE_UNIT) {
+			x -= MOVE_UNIT;
 		}
 
 	}
@@ -38,16 +40,16 @@ public class Sheep extends Species implements Move {
 	@Override
 	public void moveLeft(int leftUnit) {
 		x -= MOVE_UNIT;
-		if (x-MOVE_UNIT <= 0) {
-			x+=MOVE_UNIT;
+		if (x - MOVE_UNIT <= 0) {
+			x += MOVE_UNIT;
 		}
 	}
 
 	@Override
 	public void moveUp(int upUnit) {
 		y += MOVE_UNIT;
-		if (y>AREA_WIDTH-MOVE_UNIT) {
-			y-=MOVE_UNIT;
+		if (y > AREA_WIDTH - MOVE_UNIT) {
+			y -= MOVE_UNIT;
 		}
 
 	}
@@ -55,11 +57,10 @@ public class Sheep extends Species implements Move {
 	@Override
 	public void moveDown(int downUnit) {
 		y -= MOVE_UNIT;
-		if (y-MOVE_UNIT <= 0) {
-			y+=MOVE_UNIT;
+		if (y - MOVE_UNIT <= 0) {
+			y += MOVE_UNIT;
 		}
 	}
-
 
 	// -------------setter/getter-------------------
 
@@ -91,9 +92,5 @@ public class Sheep extends Species implements Move {
 	public String toString() {
 		return "Sheep [x=" + x + ", y=" + y + ", gender=" + gender + "]";
 	}
-
-
-	
-	
 
 }

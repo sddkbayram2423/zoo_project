@@ -36,8 +36,8 @@ public class ConfrontrationCheckManager {
 	private ArrayList<Sheep> sheeps;
 
 	private ArrayList<Hen> hens;
-	
-	//--------------------------------------------------------------------------------------------------------------
+
+	// --------------------------------------------------------------------------------------------------------------
 
 	// Distances that assets should stay away from each other
 	private final static int DANGER_DISTANCE_OF_WOLF = 4;
@@ -47,8 +47,8 @@ public class ConfrontrationCheckManager {
 	private final static int DANGER_DISTANCE_OF_LION = 5;
 
 	private final static int MATCHING_DISTANCE_OF_SAME_SPECIES_BUT_DIFFERENT_GENDER = 3;
-	
-	//--------------------------------------------------------------------------------------------------------------
+
+	// --------------------------------------------------------------------------------------------------------------
 
 	// Constructor
 	public ConfrontrationCheckManager() {
@@ -70,8 +70,7 @@ public class ConfrontrationCheckManager {
 		cows = entityManager.getCows();
 
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of a wolf relative to sheeps.
 	public void checkWolfWithOtherSheeps(Wolf wolf, int index) {
@@ -85,8 +84,7 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of a wolf relative to hens.
 	public void checkWolfWithOtherHens(Wolf wolf, int index) {
@@ -98,8 +96,7 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of a wolf relative to coks.
 	public void checkWolfWithOherCocks(Wolf wolf, int index) {
@@ -113,8 +110,7 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of a lion relative to cows.
 	public void checkLionWithOtherCows(Lion lion, int index) {
@@ -126,8 +122,7 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of a lion relative to sheeps.
 	public void checkLionWithOtherSheeps(Lion lion, int index) {
@@ -139,9 +134,8 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------
 
-	
 	// This function checks the distance of a wolf relative to enemey(Hunter).
 	public void checkWolfWithEnemies(Wolf wolf) {
 
@@ -149,8 +143,7 @@ public class ConfrontrationCheckManager {
 			entityManager.removeWolf(wolf);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of a lion relative to enemey(Hunter).
 	public void checkLionWithEnemies(Lion lion) {
@@ -159,8 +152,7 @@ public class ConfrontrationCheckManager {
 			entityManager.removeLion(lion);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of the hunter relative to other entities.
 	public void checkHunterWithOthers() {
@@ -207,8 +199,7 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks the distance of the hen relative to cocks
 	public void checkHenWithOtherCocks(Hen hen) {
@@ -231,9 +222,8 @@ public class ConfrontrationCheckManager {
 
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function checks the distance of the cokc relative to hens
 	public void checkCockWithOtherHens(Cock cock) {
 
@@ -253,8 +243,7 @@ public class ConfrontrationCheckManager {
 
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks a lion's distance from other lions.
 	public void checkLionWithOtherLions(Lion lion) {
@@ -278,7 +267,7 @@ public class ConfrontrationCheckManager {
 
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------
 
 	// This function checks a cow's distance from other cows.
 	public void checkCowWithOtherCows(Cow cow) {
@@ -298,9 +287,8 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function checks a sheep's distance from other sheeps.
 	public void checkSheepWithOtherSheeps(Sheep sheep) {
 
@@ -321,9 +309,8 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------
 
-	
 	// This function checks a wolf's distance from other wolfs.
 	public void checkWolfWithOtherWolfs(Wolf wolf) {
 
@@ -343,9 +330,8 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function checks a sheep's distance from enemies(the hunter,lions,wolfs)
 	public void checkSheepWithEnemies(Sheep sheep) {
 
@@ -364,9 +350,8 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function checks a cow's distance from enemies(the hunter,lions)
 	public void checkCowWithEnemies(Cow cow) {
 
@@ -380,9 +365,8 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function checks a cock's distance from enemies(the hunter,lions)
 	public void checkCockWithEnemies(Cock cock) {
 
@@ -396,10 +380,9 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//	This function checks a hen's distance from enemies(the hunter,wolfs)
+	// --------------------------------------------------------------------------------------------------------------
+
+	// This function checks a hen's distance from enemies(the hunter,wolfs)
 	public void checkHenWithEnemies(Hen hen) {
 
 		if (checkConfrontrationWith(hen, hunter, DANGER_DISTANCE_OF_HUNTER)) {
@@ -412,10 +395,10 @@ public class ConfrontrationCheckManager {
 			}
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
-	//	This function checks a specie's distance from other specie theat should stay away from each other
+	// This function checks a specie's distance from other specie theat should stay
+	// away from each other
 	private boolean checkConfrontrationWith(Species specie, Species specie2, int distance) {
 		return Math.abs(specie.getX() - specie2.getX()) <= distance
 				|| Math.abs(specie.getY() - specie2.getY()) <= distance;

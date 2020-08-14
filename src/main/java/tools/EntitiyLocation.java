@@ -2,12 +2,13 @@ package tools;
 
 /**
  * 
- * EntityManager.class  creat location for entitees by using this class 
+ * EntityManager.class creat location for entitees by using this class
+ * 
  * @author Sýddýk Bayram
  */
 public class EntitiyLocation {
-	
-	private int x,y;
+
+	private int x, y;
 
 	public EntitiyLocation(int x, int y) {
 		this.x = x;
@@ -29,7 +30,5 @@ public class EntitiyLocation {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
 
 }

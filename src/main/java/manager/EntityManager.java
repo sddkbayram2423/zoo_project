@@ -13,6 +13,7 @@ import entities.Sheep;
 import entities.Wolf;
 import tools.EntitiyLocation;
 import tools.Gender;
+
 /**
  * 
  * This class was created to manage all entites(to create,to remove,to add)
@@ -20,12 +21,12 @@ import tools.Gender;
  * @author Sýddýk Bayram
  */
 public class EntityManager {
-	
+
 	// Variables
 	private static final int WIDTH = 500;
-	
+
 	private static EntityManager entityManager;
-	
+
 	private ArrayList<EntitiyLocation> usedLocations;
 
 	private ArrayList<Wolf> wolfs;
@@ -39,70 +40,68 @@ public class EntityManager {
 	private ArrayList<Sheep> sheeps;
 
 	private ArrayList<Hen> hens;
-	
+
 	private Hunter hunter;
-	
-	//--------------------------------------------------------------------------------------------------------------
-	
-	//Random counts for location and gender
+
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Random counts for location and gender
 	private Random randomIntForXLocation;
-	
+
 	private Random randomIntForYLocation;
 
 	private Random randomIntRandomForGender;
-	
-	//--------------------------------------------------------------------------------------------------------------
-	
+
+	// --------------------------------------------------------------------------------------------------------------
+
 	// Count of entites
 	private int maleWolfCount = 0;
-	
-	private int femaleWolfCount = 0;
-	
-	private int maleSheepCount = 0;
-	
-	private int femaleSheepCount = 0;
-	
-	private int maleCowCount = 0;
-	
-	private int femaleCowCount = 0;
-	
-	private int cockCount = 0;
-	
-	private int henCount = 0;
-	
-	private int maleLionCount = 0;
-	
-	private int femaleLionCount = 0;
-	
-	private int hunterCount = 0;
-	
-	//--------------------------------------------------------------------------------------------------------------
-	
 
-	//Consturctor
+	private int femaleWolfCount = 0;
+
+	private int maleSheepCount = 0;
+
+	private int femaleSheepCount = 0;
+
+	private int maleCowCount = 0;
+
+	private int femaleCowCount = 0;
+
+	private int cockCount = 0;
+
+	private int henCount = 0;
+
+	private int maleLionCount = 0;
+
+	private int femaleLionCount = 0;
+
+	private int hunterCount = 0;
+
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Consturctor
 	private EntityManager() {
-		
+
 		randomIntRandomForGender = new Random();
-		
+
 		randomIntForXLocation = new Random();
-		
+
 		randomIntForYLocation = new Random();
-		
-		usedLocations=new ArrayList<>();
+
+		usedLocations = new ArrayList<>();
 
 		lions = new ArrayList<>();
-		
+
 		wolfs = new ArrayList<>();
-		
+
 		cocks = new ArrayList<>();
-		
+
 		cows = new ArrayList<>();
-		
+
 		sheeps = new ArrayList<>();
-		
+
 		hens = new ArrayList<>();
-		
-		
+
 		addAllWolfs();
 		addAllCocks();
 		addAllCows();
@@ -110,7 +109,7 @@ public class EntityManager {
 		addHunter();
 		addAllHens();
 		addAllSheeps();
-		
+
 		System.out.println("-------------At Beginning Entites Count----------");
 		System.out.println("Sheep Count: " + sheeps.size());
 		System.out.println("Wolf Count : " + wolfs.size());
@@ -121,9 +120,9 @@ public class EntityManager {
 		System.out.println("-------------------------------------------------\n");
 
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	//Adding function  to add  10 wolfs by creating random location
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Adding function to add 10 wolfs by creating random location
 	private void addAllWolfs() {
 
 		Wolf wolf = null;
@@ -144,10 +143,9 @@ public class EntityManager {
 		}
 
 	}
-	//--------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------
 
-	
-	//Adding function  to add  8 lions by creating random location
+	// Adding function to add 8 lions by creating random location
 	private void addAllLions() {
 
 		Lion lion = null;
@@ -168,27 +166,25 @@ public class EntityManager {
 			usedLocations.add(location);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
-	//Adding function  to add  10 cocks by creating random location
+	// Adding function to add 10 cocks by creating random location
 	private void addAllCocks() {
 
 		Cock cock = null;
 
 		for (int i = 0; i < 10; i++) {
 
-			EntitiyLocation location =getNewRandomLocation();
+			EntitiyLocation location = getNewRandomLocation();
 			cockCount++;
 			cock = new Cock(location.getX(), location.getY());
 			cocks.add(cock);
 			usedLocations.add(location);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
-	//Adding function  to add  10 cows by creating random location
+	// Adding function to add 10 cows by creating random location
 	private void addAllCows() {
 
 		Cow cow = null;
@@ -207,16 +203,14 @@ public class EntityManager {
 			usedLocations.add(location);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Adding function  to add  30 sheeps by creating random location
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Adding function to add 30 sheeps by creating random location
 	private void addAllSheeps() {
 
 		Sheep sheep = null;
 
 		for (int i = 0; i < 30; i++) {
-			
 
 			EntitiyLocation location = getNewRandomLocation();
 
@@ -232,10 +226,9 @@ public class EntityManager {
 			usedLocations.add(location);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Adding function  to add  10 hens by creating random location
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Adding function to add 10 hens by creating random location
 	private void addAllHens() {
 		Hen hen = null;
 		for (int i = 0; i < 10; i++) {
@@ -246,10 +239,9 @@ public class EntityManager {
 			usedLocations.add(location);
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Adding function  to add hunter by creating random location
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Adding function to add hunter by creating random location
 	private Hunter addHunter() {
 
 		EntitiyLocation location = getNewRandomLocation();
@@ -259,10 +251,9 @@ public class EntityManager {
 
 		return hunter;
 	}
-	//--------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------
 
-	
-	//Delete function  to remove cow
+	// Delete function to remove cow
 	public void removeCow(Cow cow) {
 
 		if (cow.getGender() == Gender.FEMALE) {
@@ -285,10 +276,9 @@ public class EntityManager {
 		cows.remove(new Cow(cow.getX(), cow.getY(), cow.getGender()));
 		usedLocations.add(new EntitiyLocation(cow.getX(), cow.getY()));
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Delete function  to remove cock
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Delete function to remove cock
 	public void removeCock(Cock cock) {
 
 		if (cockCount <= 0) {
@@ -299,10 +289,9 @@ public class EntityManager {
 		cocks.remove(new Cock(cock.getX(), cock.getY()));
 		usedLocations.add(new EntitiyLocation(cock.getX(), cock.getY()));
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Delete function  to remove hen
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Delete function to remove hen
 	public void removeHen(Hen hen) {
 		if (henCount <= 0) {
 			henCount = 0;
@@ -312,10 +301,9 @@ public class EntityManager {
 		hens.remove(new Hen(hen.getX(), hen.getY()));
 		usedLocations.remove(new EntitiyLocation(hen.getX(), hen.getY()));
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Delete function  to remove lion
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Delete function to remove lion
 	public void removeLion(Lion lion) {
 
 		if (lion.getGender() == Gender.FEMALE) {
@@ -335,10 +323,9 @@ public class EntityManager {
 		lions.remove(new Lion(lion.getX(), lion.getY(), lion.getGender()));
 		usedLocations.remove(new EntitiyLocation(lion.getX(), lion.getY()));
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Delete function  to remove wolf
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Delete function to remove wolf
 	public void removeWolf(Wolf wolf) {
 
 		if (wolf.getGender() == Gender.FEMALE) {
@@ -361,10 +348,9 @@ public class EntityManager {
 		wolfs.remove(new Wolf(wolf.getX(), wolf.getY(), wolf.getGender()));
 		usedLocations.remove(new EntitiyLocation(wolf.getX(), wolf.getY()));
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Delete function  to remove sheep
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Delete function to remove sheep
 	public void removeSheep(Sheep sheep) {
 
 		if (sheep.getGender() == Gender.FEMALE) {
@@ -386,28 +372,26 @@ public class EntityManager {
 		sheeps.remove(new Sheep(sheep.getX(), sheep.getY(), sheep.getGender()));
 		usedLocations.remove(new EntitiyLocation(sheep.getX(), sheep.getY()));
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
+	// --------------------------------------------------------------------------------------------------------------
 
-	//Function to generate a random hen or cock when a rooster and hen confronration
+	// Function to generate a random hen or cock when a rooster and hen
+	// confronration
 	public void createRandomCockOrHen() {
-		
 
 		// 0=Cock 1=Hen
 		int randomForGender = randomIntRandomForGender.nextInt(2);
-		
-		
+
 		EntitiyLocation location = getNewRandomLocation();
-		
+
 		if (randomForGender == 0) {
 			Cock cock = new Cock(location.getX(), location.getY());
 			cocks.add(cock);
 			cockCount++;
 			usedLocations.add(location);
 			System.err.println("Random a cock created");
-			
-		} 
-		if(randomForGender==1) {
+
+		}
+		if (randomForGender == 1) {
 			Hen hen = new Hen(location.getX(), location.getY());
 			hens.add(hen);
 			henCount++;
@@ -415,10 +399,10 @@ public class EntityManager {
 			System.err.println("Random a hen created");
 		}
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Function to generate a random male or female cow when different cows confronration
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Function to generate a random male or female cow when different cows
+	// confronration
 	public void createRandomCow() {
 
 		// 0=Male 1=Female
@@ -437,10 +421,10 @@ public class EntityManager {
 		cows.add(cow);
 		usedLocations.add(location);
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Function to generate a random male or female lion when different cows confronration
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Function to generate a random male or female lion when different cows
+	// confronration
 	public void createRandomLion() {
 
 		// 0=Male 1=Female
@@ -460,13 +444,12 @@ public class EntityManager {
 		lions.add(lion);
 		usedLocations.add(location);
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Function to generate a random male or female sheep when different cows confronration
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Function to generate a random male or female sheep when different cows
+	// confronration
 	public void createRandomSheep() {
 
-		
 		// 0=Male 1=Female
 		int randomForGender = randomIntRandomForGender.nextInt(2);
 		Sheep sheep = null;
@@ -484,9 +467,10 @@ public class EntityManager {
 		sheeps.add(sheep);
 		usedLocations.add(location);
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	//Function to generate a random male or female sheep wolf different cows confronration
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Function to generate a random male or female sheep wolf different cows
+	// confronration
 	public void createRandomWolf() {
 
 		// 0=Male 1=Female
@@ -507,12 +491,11 @@ public class EntityManager {
 		usedLocations.add(location);
 
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//Function to generate a random new location for entities
+	// --------------------------------------------------------------------------------------------------------------
+
+	// Function to generate a random new location for entities
 	public EntitiyLocation getNewRandomLocation() {
-		
+
 		EntitiyLocation location = new EntitiyLocation(randomIntForXLocation.nextInt(WIDTH),
 				randomIntForYLocation.nextInt(WIDTH));
 
@@ -521,10 +504,10 @@ public class EntityManager {
 		}
 		return location;
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//The function that checks whether the same position exists or not (new Location(x,y))
+	// --------------------------------------------------------------------------------------------------------------
+
+	// The function that checks whether the same position exists or not (new
+	// Location(x,y))
 	public EntitiyLocation getNewLocation(int x, int y) {
 
 		EntitiyLocation location = new EntitiyLocation(x, y);
@@ -534,10 +517,9 @@ public class EntityManager {
 		}
 		return location;
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	//The Function that checks whether the position is used or not
+	// --------------------------------------------------------------------------------------------------------------
+
+	// The Function that checks whether the position is used or not
 	public boolean isLocationUsed(EntitiyLocation location) {
 
 		for (EntitiyLocation entitiyLocation : usedLocations) {
@@ -548,17 +530,15 @@ public class EntityManager {
 		return false;
 
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
-	public void updateLocation(EntitiyLocation oldLocation,EntitiyLocation newLocation) {
-			usedLocations.remove(oldLocation);
-			usedLocations.add(newLocation);
-	}
-	
-	//--------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------
 
-	
+	public void updateLocation(EntitiyLocation oldLocation, EntitiyLocation newLocation) {
+		usedLocations.remove(oldLocation);
+		usedLocations.add(newLocation);
+	}
+
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function return singelton object of entityManager class
 	public static EntityManager getIntanceEntityManager() {
 
@@ -567,26 +547,25 @@ public class EntityManager {
 		}
 		return entityManager;
 	}
-	
-	//--------------------------------------------------------------------------------------------------------------
-	
-	
+
+	// --------------------------------------------------------------------------------------------------------------
+
 	// This function return count of entites aggording to the gender
 	public String getTotalEntitieCount() {
-		
-		int total=femaleCowCount +maleCowCount+femaleLionCount+maleLionCount+femaleSheepCount+maleSheepCount+femaleWolfCount+maleWolfCount+cockCount+henCount+henCount;
+
+		int total = femaleCowCount + maleCowCount + femaleLionCount + maleLionCount + femaleSheepCount + maleSheepCount
+				+ femaleWolfCount + maleWolfCount + cockCount + henCount + henCount;
 
 		String totalEntitieCount = "\nFemale Cow Count  : " + femaleCowCount + "\nMale Cow Count    : " + maleCowCount
 				+ "\nFemale Sheep Count: " + femaleSheepCount + "\nMale Sheep Count  : " + maleSheepCount
 				+ "\nFemale Lion Count : " + femaleLionCount + "\nMale Lion Count   : " + maleLionCount
 				+ "\nFemale Wolf Count : " + femaleWolfCount + "\nMale Wolf Count   : " + maleWolfCount
 				+ "\nCock Count        : " + cockCount + "\nHen Count         : " + henCount + "\nHunter Count      : "
-				+ hunterCount+"\nTotal      : "+ total;
+				+ hunterCount + "\nTotal      : " + total;
 
 		return totalEntitieCount;
 	}
-	//---------------------------------------------------Setter/getter---------------------------------------------
-
+	// ---------------------------------------------------Setter/getter---------------------------------------------
 
 	public ArrayList<Wolf> getWolfs() {
 		return wolfs;
@@ -617,7 +596,4 @@ public class EntityManager {
 		return hunter;
 	}
 
-
 }
-
-

@@ -2,18 +2,19 @@ package entities;
 
 /**
  * 
- * This class determines the behavior and thevariables of Hen
- * This class implments Move inteface and inherited from Specie abstract class
+ * This class determines the behavior and thevariables of Hen This class
+ * implments Move inteface and inherited from Specie abstract class
+ * 
  * @author Sýddýk Bayram
  */
-public class Hen extends  Species implements Move {
+public class Hen extends Species implements Move {
 
 	public static int MOVE_UNIT = 1;
-	
-	public static final String NAME="Hen";
+
+	public static final String NAME = "Hen";
 
 	private int x, y;
-	
+
 	public Hen(int x, int y) {
 		super(x, y, NAME);
 		this.x = x;
@@ -23,9 +24,9 @@ public class Hen extends  Species implements Move {
 	@Override
 	public void moveRight(int rightUnit) {
 		x += MOVE_UNIT;
-		
-		if (x >AREA_WIDTH-MOVE_UNIT) {
-			x-=MOVE_UNIT;
+
+		if (x > AREA_WIDTH - MOVE_UNIT) {
+			x -= MOVE_UNIT;
 		}
 
 	}
@@ -33,16 +34,16 @@ public class Hen extends  Species implements Move {
 	@Override
 	public void moveLeft(int leftUnit) {
 		x -= MOVE_UNIT;
-		if (x-MOVE_UNIT <= 0) {
-			x+=MOVE_UNIT;
+		if (x - MOVE_UNIT <= 0) {
+			x += MOVE_UNIT;
 		}
 	}
 
 	@Override
 	public void moveUp(int upUnit) {
 		y += MOVE_UNIT;
-		if (y>AREA_WIDTH-MOVE_UNIT) {
-			y-=MOVE_UNIT;
+		if (y > AREA_WIDTH - MOVE_UNIT) {
+			y -= MOVE_UNIT;
 		}
 
 	}
@@ -50,8 +51,8 @@ public class Hen extends  Species implements Move {
 	@Override
 	public void moveDown(int downUnit) {
 		y -= MOVE_UNIT;
-		if (y-MOVE_UNIT <= 0) {
-			y+=MOVE_UNIT;
+		if (y - MOVE_UNIT <= 0) {
+			y += MOVE_UNIT;
 		}
 	}
 
@@ -74,7 +75,7 @@ public class Hen extends  Species implements Move {
 	}
 
 	@Override
-	public String toString() { 
-		return "Hen [x=" + x + ", y=" + y + " name: "+this.getName()+ "]";
+	public String toString() {
+		return "Hen [x=" + x + ", y=" + y + " name: " + this.getName() + "]";
 	}
 }
