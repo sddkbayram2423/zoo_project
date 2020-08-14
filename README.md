@@ -1,9 +1,10 @@
 # zoo_project
-### 
 
+### 
  
-In this project Singleton ve OOP Techniques(Class, Inheritance, Interface, Polymorphism, Encapsulation) are used.
+The aim of this project is to implement OOP Techniques(Class, Inheritance, Interface, Polymorphism, Encapsulation). In addition Singleton method is used.
  
+  ### 
 Project created as a maven project
- 
-To Run : Open MainRunClass and than run as Java Application
+   ### 
+How to run project : Open MainRunClass and than run as Java Application
